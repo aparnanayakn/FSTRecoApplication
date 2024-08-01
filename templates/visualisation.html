@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <title>Meta features</title>
+    <style>
+        th {
+            background: #1AA7EC;
+            text-align: left;
+        }
+        #tree-container {
+            position: relative;
+            display: inline-block;
+        }
+        #tree {
+            width: 300px; 
+            transition: width 0.2s, height 0.2s;
+        }
+        .zoom-btn {
+            background-color: #1AA7EC;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .zoom-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Meta features</h1>
+    <table class="onetable">
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr>
+                <td>{{ item }}</td>
+                <td>{{ data[item] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h1>Predicted Label</h1>
+    <p>Using raw data: {{ predicted_label[0] }}</p>
+    <p>Using normalised data: {{ predicted_label[1] }}</p>
+
+    <h1> Explanation of the raw data decision using decision tree </h1>
+  
+  <div id="tree-container">
+        <img id="tree" src="{{ url_for('static', filename='tree.png') }}" alt="Decision Tree">
+        <button class="zoom-btn" onclick="zoomIn()">ZOOM IN</button> 
+        <button></button> 
+        <button class="zoom-btn" onclick="zoomOut()">ZOOM OUT</button>
+    </div>
+  
+  <script>
+        let zoomLevel = 5;
+        const tree = document.getElementById('tree');
+
+        function zoomIn() {
+            zoomLevel += 0.2;
+            tree.style.width = 300 * zoomLevel + 'px';
+        }
+
+        function zoomOut() {
+            zoomLevel -= 0.2;
+            if (zoomLevel < 0.1) zoomLevel = 0.1;
+            tree.style.width = 300 * zoomLevel + 'px';
+        }
+    </script>
+</body>
+</html>
+
