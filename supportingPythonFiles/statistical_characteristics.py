@@ -2,7 +2,7 @@ import numpy as np
 import math
 from scipy.stats import norm, kurtosis
 from collections import Counter
-import simple_characteristics
+from . import simple_characteristics
 import pandas as pd
 
 

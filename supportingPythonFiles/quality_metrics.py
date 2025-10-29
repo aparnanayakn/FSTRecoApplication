@@ -1,7 +1,7 @@
 import imblearn
 import pandas as pd
-import simple_characteristics
-import pre_processing
+from . import simple_characteristics
+from . import pre_processing
 import statistics
 from collections import Counter
 import re

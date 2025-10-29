@@ -4,7 +4,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn import svm
 from sklearn.neighbors import KNeighborsClassifier
 from cleanlab.filter import find_label_issues
-import simple_characteristics
+from . import simple_characteristics
 import pandas as pd
 
 def find_labels(dataset):

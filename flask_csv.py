@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 import os
-import extractmf
+from supportingPythonFiles  import extractmf
 from SPARQLWrapper import SPARQLWrapper, JSON
-import binGenerator
+from supportingPythonFiles  import binGenerator
 
 app = Flask(__name__)
 port_number = 5555
+
 
 filePath = None
 

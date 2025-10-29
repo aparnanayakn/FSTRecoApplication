@@ -1,7 +1,7 @@
 from sklearn.cluster import KMeans
 import numpy as np
 import pandas as pd
-import simple_characteristics
+from . import simple_characteristics
 
 from scipy.spatial.distance import cdist
 

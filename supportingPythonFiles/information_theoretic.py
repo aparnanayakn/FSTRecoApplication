@@ -1,6 +1,6 @@
-import simple_characteristics
+from . import simple_characteristics
 import math
-import pre_processing
+from . import pre_processing
 import numpy as np
 from statistics import mean, stdev
 from sklearn.metrics import mutual_info_score

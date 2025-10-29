@@ -1,9 +1,9 @@
-import file_operations
-import simple_characteristics
-import pre_processing
-import quality_metrics
-import statistical_characteristics
-import information_theoretic
+from . import file_operations
+from . import simple_characteristics
+from . import pre_processing
+from . import quality_metrics
+from . import statistical_characteristics
+from . import information_theoretic
 from pymfe.mfe import MFE
 import pandas as pd
 import math
