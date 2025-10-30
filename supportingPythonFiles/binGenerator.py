@@ -17,7 +17,7 @@ def encode_values(column_values):
 def binGenerator(dataset):
     dataset['LabelIssuesPerc'] = 0 if len(dataset['LabelIssues']) == 0 else 1
  
-    with open('./decision tree models/df_raw_decision_tree_model.pkl', 'rb') as model_file:
+    with open('./decision tree models/dt_random_smote.pkl', 'rb') as model_file:
         dt_classifier = pickle.load(model_file)
 
     
@@ -30,7 +30,7 @@ def binGenerator(dataset):
     }
 
     # Replace dt_classifier.classes_ with their corresponding capital values
-    capital_class_names = [class_to_capital[label] for label in dt_classifier.classes_]
+    #capital_class_names = [class_to_capital[label] for label in dt_classifier.classes_]
     for key, value in dataset.items():
         if not isinstance(value, list) and isinstance(value, float) and math.isnan(value):
             dataset[key] = 0
@@ -57,7 +57,7 @@ def binGenerator(dataset):
         dt_classifier,
         out_file=None,
         feature_names=feature_names,
-        class_names=capital_class_names,
+        class_names=dt_classifier.classes_,
         filled=True,
         rounded=True,
         special_characters=True
